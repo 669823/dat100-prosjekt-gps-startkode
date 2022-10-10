@@ -118,11 +118,11 @@ public class GPSUtils {
 		String TIMESEP = ":";
 
 		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
-
+		String hr=;
+		String min=;
+		String sec=;
+		timestr = ("  "+hr+TIMESEP+min+TIMESEP+sec);
+		return timestr;
 	}
 	private static int TEXTWIDTH = 10;
 
