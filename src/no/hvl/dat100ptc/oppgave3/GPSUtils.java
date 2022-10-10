@@ -2,6 +2,8 @@ package no.hvl.dat100ptc.oppgave3;
 
 import static java.lang.Math.*;
 
+import java.text.DecimalFormat;
+
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
@@ -116,12 +118,16 @@ public class GPSUtils {
 
 		String timestr;
 		String TIMESEP = ":";
-
-		// TODO - START
-		String hr=;
-		String min=;
-		String sec=;
-		timestr = ("  "+hr+TIMESEP+min+TIMESEP+sec);
+		int hr=	secs/3600;
+		int min = (secs%3600)/60;//bruke rest
+		int sec = (secs%3600)%60;//bruke rest
+		
+		DecimalFormat formatter = new DecimalFormat("00");
+		String hrf = formatter.format(hr);
+		String minf = formatter.format(min);
+		String secf = formatter.format(sec);
+		
+		timestr = ("  "+hrf+TIMESEP+minf+TIMESEP+secf);
 		return timestr;
 	}
 	private static int TEXTWIDTH = 10;
@@ -129,12 +135,25 @@ public class GPSUtils {
 	public static String formatDouble(double d) {
 
 		String str;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		  
 		
+
+		DecimalFormat df = new DecimalFormat("#.00");   
+		
+		String str1 = df.format(d);
+		str = str1.replace(',', '.');
+		
+		
+		
+		
+		while(str.length() < TEXTWIDTH) {
+			
+			str = (" "+str);
+			
+			
+		}
+		
+		
+		return str;
 	}
 }
