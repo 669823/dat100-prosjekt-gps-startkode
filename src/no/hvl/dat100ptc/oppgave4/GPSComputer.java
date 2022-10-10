@@ -32,8 +32,11 @@ public class GPSComputer {
 		double distance = 0;
 
 		// TODO - START
+		for (int i = 0; i < gpspoints.length-1; i++) {
+			distance = distance + GPSUtils.distance(gpspoints[i],gpspoints[i+1]);
+		}
+			return distance; 
 
-		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
 
