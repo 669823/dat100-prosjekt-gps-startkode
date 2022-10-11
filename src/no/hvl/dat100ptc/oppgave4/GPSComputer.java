@@ -73,12 +73,12 @@ public class GPSComputer {
 
 	public double[] speeds() {
 		
-		double[] snitt = new double [gpspoints.length-1];
+		double[] kmt = new double [gpspoints.length-1];
 		for (int i = 0; i < gpspoints.length - 1; i++) {
-			snitt[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+			kmt[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
 			
 		}
-		return snitt;
+		return kmt;
 	}
 
 	
