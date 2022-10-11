@@ -98,11 +98,12 @@ public class GPSComputer {
 
 		double average = 0;
 		
-		// TODO - START
+		double avstand = totalDistance();
+		double tid = totalTime();
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+		double snitt = avstand/tid;
+		average = snitt*3.6;
+		return average;
 		
 	}
 
@@ -126,24 +127,25 @@ public class GPSComputer {
 		// MET: Metabolic equivalent of task angir (kcal x kg-1 x h-1)
 		double met = 0;		
 		double speedmph = speed * MS;
+		double hr = secs/3600;
 
-		// TODO - START
+		if (speedmph < 10) {met=4.0;}
+		else if (speedmph >=10 && speedmph < 12) {met=6.0; }
+		else if (speedmph >=12 && speedmph < 14) {met=8.0; }
+		else if (speedmph >=14 && speedmph < 16) {met=10.0; }
+		else if (speedmph >=16 && speedmph < 20) {met=12.0; }
+		else {met=16.0;}
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
 		
+		kcal = met*weight*hr;
+		return kcal;
 	}
 
 	public double totalKcal(double weight) {
 
 		double totalkcal = 0;
-
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		return kcal(weight, totalTime(), averageSpeed());
 		
 	}
 	
