@@ -86,12 +86,11 @@ public class GPSComputer {
 	public double maxSpeed() {
 		
 		double maxspeed = 0;
+		double [] max = speeds();
 		
-		// TODO - START
+		maxspeed = GPSUtils.findMax(max);
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+		return maxspeed;
 		
 	}
 
