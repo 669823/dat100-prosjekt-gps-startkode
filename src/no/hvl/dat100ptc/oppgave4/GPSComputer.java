@@ -75,7 +75,7 @@ public class GPSComputer {
 		
 		// TODO - START		// OPPGAVE - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+
 
 		// TODO - SLUTT
 
