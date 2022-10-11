@@ -76,7 +76,6 @@ public class GPSComputer {
 		// TODO - START		// OPPGAVE - START
 		
 
-
 		// TODO - SLUTT
 
 	}
