@@ -61,7 +61,7 @@ for(int i = 0; i < gpspoints.length-1; i++) {
 }
 			avgspeed = avgspeed/N;
 			setColor(0,255,0);
-			drawLine (MARGIN,ybase-(int)avgspeed,x,ybase-(int)avgspeed);
+			drawLine (x,ybase-(int)avgspeed,x,ybase-(int)avgspeed);
 }	
 	}
 
