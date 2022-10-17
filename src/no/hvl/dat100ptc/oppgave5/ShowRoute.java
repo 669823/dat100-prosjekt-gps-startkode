@@ -73,13 +73,13 @@ public class ShowRoute extends EasyGraphics {
 		double minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
 		
 		starty=ybase-(Math.abs(gpspoints[0].getLatitude()-minlat)*ystep); //forskjell nå * pixler per latitdue
-		startx=MARGIN+(Math.abs(gpspoints[0].getLongitude()-minlon)*xstep);//forskjell nå * pixler per longitude
+		startx=50+(Math.abs(gpspoints[0].getLongitude()-minlon)*xstep);//forskjell nå * pixler per longitude
 		
 		for(int i=1; i < gpspoints.length-1; i++) {
 			double lat = gpspoints[i].getLatitude();
 			double lon = gpspoints[i].getLongitude();
 			double endy = ybase-(Math.abs(lat-minlat)*ystep); 
-			double endx = MARGIN+(Math.abs(lon-minlon)*xstep);
+			double endx = 50+(Math.abs(lon-minlon)*xstep);
 			
 			setColor(0,255,0);
 			drawLine((int)startx,(int)starty,(int)endx,(int)endy);
