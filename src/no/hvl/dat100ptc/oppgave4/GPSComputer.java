@@ -49,11 +49,8 @@ public class GPSComputer {
 
 		// TODO - START
 				for (int i = 0; i < gpspoints.length-1; i++) {
-					if (elevation < gpspoints[i].getElevation()) {
-					if (i == 0) {
-						elevation =+ gpspoints[0].getElevation();
-						} else
-						elevation += (gpspoints[i].getElevation() - gpspoints[i-1].getElevation());	
+					if (gpspoints[i].getElevation()<gpspoints[i+1].getElevation()) {
+						elevation = elevation + (gpspoints[i+1].getElevation()-gpspoints[i].getElevation());
 				}}
 				return elevation;
 				// TODO - SLUTT
@@ -129,23 +126,35 @@ public class GPSComputer {
 		// MET: Metabolic equivalent of task angir (kcal x kg-1 x h-1)
 		double met = 0;		
 		double speedmph = speed * MS;
-		double hr = secs / 3600;
-
-		if (speedmph < 10) {met=4.0;}
-		else if (speedmph >=10 && speedmph < 12) {met=6.0; }
-		else if (speedmph >=12 && speedmph < 14) {met=8.0; }
-		else if (speedmph >=14 && speedmph < 16) {met=10.0; }
-		else if (speedmph >=16 && speedmph < 20) {met=12.0; }
-		else {met=16.0;}
+		double hr = secs / 3600.0;
+		// TODO - START
+		if (speedmph <= 10) {met = 4.0;
+		} else if (speedmph > 10 && speedmph <= 12) {met = 6.0;
+		} else if (speedmph > 12 && speedmph <= 14) {met = 8.0;
+		} else if (speedmph > 14 && speedmph <= 16) {met = 10.0;
+		} else if (speedmph > 16 && speedmph <= 20) {met = 12.0;
+		} else { met = 16.0;
+		}
 		
 		
-		kcal = met*weight*hr;
+		
+		
+		kcal = met * weight * hr;
+		
 		return kcal;
+		
 	}
 
 	public double totalKcal(double weight) {
 		double totalkcal = 0;
-			totalkcal += kcal(weight, totalTime(), averageSpeed());
+		for (int i = 0; i < this.gpspoints.length-1; i++) {
+			int secs     = this.gpspoints[i+1].getTime() - this.gpspoints[i].getTime();
+			
+			double speed = GPSUtils.speed(this.gpspoints[i], this.gpspoints[i+1]);
+			
+			totalkcal += kcal(weight, secs, speed);
+		}
+		System.out.println(totalkcal);
 		return totalkcal;
 	}
 	
